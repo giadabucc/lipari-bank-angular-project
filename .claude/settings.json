@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm \"c:/Users/User/source/lipari-bank-dashboard/src/app/app.module.ts\")",
+      "Bash(npx ng *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\User\\source\\lipari-bank-dashboard\\src\\app"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<!-- app/core/layout/header/header.component.html -->
+<header class="header">
+  <div class="header-left">
+    <!-- Interpolation: mostra testo statico o dinamico -->
+    <h1 class="logo">LipariBank</h1>
+  </div>
+
+  <div class="header-right">
+    <!-- Structural directive *ngIf: mostra l'elemento solo se la condizione è vera -->
+    <!-- Angular 17+ supporta anche @if, ma *ngIf è ancora valido -->
+    <div *ngIf="isAuthenticated" class="user-menu">
+      <span class="user-greeting">Benvenuto</span>
+      <!-- Property binding: [class.active] aggiunge la classe CSS 'active'
+           se isAuthenticated è true -->
+      <button
+        class="logout-btn"
+        [class.active]="isAuthenticated"
+        (click)="onLogout()">
+        Logout
+      </button>
+    </div>
+
+    <!-- ng-container: elemento virtuale che non genera markup DOM -->
+    <!-- Utile per applicare direttive strutturali senza wrapper extra -->
+    <ng-container *ngIf="!isAuthenticated">
+      <a routerLink="/login" class="login-link">Accedi</a>
+    </ng-container>
+  </div>
+</header>

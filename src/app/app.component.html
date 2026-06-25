@@ -1,0 +1,19 @@
+<!-- app/app.component.html -->
+<!-- AppShell: struttura base dell'applicazione enterprise -->
+<div class="app-container">
+  <!-- Header: barra superiore con logo, menu utente, notifiche -->
+  <!-- Property binding: passa isAuthenticated come input al componente figlio -->
+  <app-header [isAuthenticated]="isAuthenticated()"></app-header>
+
+  <div class="app-body">
+    <!-- Sidebar: menu di navigazione laterale -->
+    <!-- Interpolation: mostra il nome utente nel template -->
+    <app-sidebar [userName]="userName()"></app-sidebar>
+
+    <!-- Main content area: qui viene renderizzato il contenuto della route attiva -->
+    <!-- RouterOutlet è una direttiva che inserisce il componente della route corrente -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

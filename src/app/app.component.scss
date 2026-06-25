@@ -1,0 +1,22 @@
+// app/app.component.scss
+// Stili scoped al componente: non influenzano altri componenti
+// Angular emula lo scoping aggiungendo attributi univoci agli elementi
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Viewport height: l'app occupa tutta l'altezza dello schermo
+  overflow: hidden; // Previene scroll indesiderato
+}
+
+.app-body {
+  display: flex;
+  flex: 1; // Occupa tutto lo spazio disponibile
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px; // Spaziatura interna per il contenuto
+  overflow-y: auto; // Scroll verticale se il contenuto supera l'altezza
+  background-color: #f5f5f5; // Colore di sfondo neutro per dashboard bancarie
+}
