@@ -32,11 +32,12 @@ button {
 
 .app-shell {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 260px 1fr;
   grid-template-areas:
     "header header"
-    "sidebar main";
+    "sidebar main"
+    "footer footer";
   min-height: 100vh;
 }
 
@@ -51,6 +52,10 @@ button {
 .app-shell__main {
   grid-area: main;
   padding: 1.5rem 2rem;
+}
+
+.app-shell__footer {
+  grid-area: footer;
 }
 
 .card {

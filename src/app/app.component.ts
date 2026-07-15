@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './core/layout/header/header.component';
 import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
+import { FooterComponent } from './core/layout/footer/footer.component';
 import { UserService, User } from './core/services/user.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, SidebarComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, SidebarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
