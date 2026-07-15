@@ -1,0 +1,59 @@
+.sidebar {
+  height: 100%;
+  padding: 1.5rem 1.25rem;
+  background: #0b2340;
+  color: #f1f5ff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar__section--brand {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__bank-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.sidebar__bank-caption {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sidebar__section--menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.sidebar__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.sidebar__item--active {
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 1;
+}
+
+.sidebar__item-label {
+  flex: 1;
+}
+

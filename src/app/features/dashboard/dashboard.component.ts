@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
+  imports: [CommonModule],
   template: `
-    <h2>💳 Conto Corrente</h2>
-    <p>Saldo disponibile: <strong>€ 12.450,00</strong></p>
-  `
+    <section class="card">
+      <h1 class="card__title">Dashboard</h1>
+      <p class="card__subtitle">
+        Benvenuto nella tua area personale Lipari Bank.
+      </p>
+    </section>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {}
+

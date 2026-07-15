@@ -1,25 +1,27 @@
 import { Routes } from '@angular/router';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard',
+  },
   {
     path: 'dashboard',
-    loadComponent: () =>
-      import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent)
+    component: DashboardComponent,
   },
   {
     path: 'investimenti',
-    loadComponent: () =>
-      import('./features/investimenti/investimenti.component').then(m => m.InvestimentiComponent)
+    component: DashboardComponent,
   },
   {
     path: 'polizze',
-    loadComponent: () =>
-      import('./features/polizze/polizze.component').then(m => m.PolizzeComponent)
+    component: DashboardComponent,
   },
   {
-    path: 'admin',
-    loadComponent: () =>
-      import('./features/admin/admin.component').then(m => m.AdminComponent)
+    path: '**',
+    redirectTo: 'dashboard',
   },
 ];
+

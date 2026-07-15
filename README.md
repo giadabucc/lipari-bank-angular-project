@@ -1,59 +1,86 @@
-# LipariBankDashboard
+# Lipari Bank Dashboard (Angular 19 - Standalone)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.17.
+Piccolo progetto didattico Angular 19 standalone con Signals, routing e layout a shell per simulare un dashboard bancario.
 
-## Development server
+## Requisiti
 
-To start a local development server, run:
+- Node.js recente (>= 18 consigliato)
+- npm
 
-```bash
-ng serve
-```
+## Installazione & Avvio
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. Installa le dipendenze:
 
-## Code scaffolding
+   ```bash
+   npm install
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. Avvia il server di sviluppo:
 
-```bash
-ng generate component component-name
-```
+   ```bash
+   npx ng serve
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+   oppure, se hai Angular CLI globale:
 
-```bash
-ng generate --help
-```
+   ```bash
+   ng serve
+   ```
 
-## Building
+L'applicazione sarà disponibile (di default) su `http://localhost:4200`.
 
-To build the project run:
+## Struttura principale
 
-```bash
-ng build
-```
+- `src/app/app.component.*`: AppShell con header, sidebar e `<router-outlet>`.
+- `src/app/core/layout/header`: header con pulsante Logout.
+- `src/app/core/layout/sidebar`: sidebar con voci di menu.
+- `src/app/core/services/user.service.ts`: servizio utente che espone `getCurrentUser()`.
+- `src/app/features/dashboard/dashboard.component.ts`: dashboard minimale.
+- `src/app/app.routes.ts`: definizione delle route principali.
+- `src/main.ts`: bootstrap dell'applicazione standalone.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🐛 3 MISSIONI DI DEBUG
 
-## Running unit tests
+Nel progetto sono stati inseriti **3 bug intenzionali** per esercitarti nel debug di un'app Angular standalone con Signals e Router.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### MISSIONE 1
 
-```bash
-ng test
-```
+> **Problema:** "Il pulsante Logout è sempre visibile anche senza login."
 
-## Running end-to-end tests
+### MISSIONE 2
 
-For end-to-end (e2e) testing, run:
+> **Problema:** "La navigazione non funziona e c'è un NullInjectorError in console."
 
-```bash
-ng e2e
-```
+### MISSIONE 3
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+> **Problema:** "Le voci di menu della Sidebar non navigano. C'è un errore 'Can't bind to routerLink'."
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Bonus Mission — Feature da Implementare (opzionale, ~1 ora)
+
+Una volta risolti i 3 bug, implementa la seguente feature per consolidare i concetti del giorno.
+
+### Segnalatore di route attiva nella Sidebar
+
+La sidebar mostra le voci di menu ma non fornisce nessun feedback visivo su quale sezione sia attualmente aperta. L'utente non riesce a capire dove si trova nell'applicazione.
+
+**Cosa implementare:**
+
+Aggiungi alla `SidebarComponent` un indicatore visivo che evidenzi la voce di menu corrispondente alla route attiva corrente. Ogni voce deve avere uno stile distinto quando la route che rappresenta è quella attiva (o un suo prefisso).
+
+La logica di rilevamento della route attiva deve usare un `Signal` derivato dalla navigazione del Router — non deve risiedere nel template con sole direttive.
+
+Collega il tutto al servizio `UserService` esistente: le voci di menu devono essere visibili solo quando l'utente è considerato autenticato. Se il segnale di autenticazione è falso, la sidebar non deve mostrare nessuna voce.
+
+**Criteri di accettazione:**
+
+- La voce di menu della route corrente ha un aspetto visivamente diverso dalle altre.
+- Navigando tra le route, l'indicatore si aggiorna automaticamente senza ricaricare la pagina.
+- Se l'utente non è autenticato, nessuna voce di menu è visibile nella sidebar.
+- Il rilevamento della route attiva è implementato con un Signal nel componente, non solo tramite attributi del template.
+- Nessun bug esistente viene reintrodotto o aggirato.
+
+---
+
+*LipariBank Prompt Bootcamp — Modern Architecture & Advanced Debugging — Day 01*
